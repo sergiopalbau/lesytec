@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Color theme for statusbar -->
+    <meta name="theme-color" content="#2196f3">
+
+     <script src="ext/signature/lib/modernizr.js"></script>
+
+     
+      <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+      <script>
+        // Initialize Firebase
+        var config = {
+          apiKey: "AIzaSyAYdYuZir-qAVvWHsVdw3ri5CrOoFniJQ4",
+          authDomain: "signin-25095.firebaseapp.com",
+          databaseURL: "https://signin-25095.firebaseio.com",
+          projectId: "signin-25095",
+          storageBucket: "signin-25095.appspot.com",
+          messagingSenderId: "229931503652"
+        };
+        firebase.initializeApp(config);
+      </script>
+
+
+    <!-- Your app title -->
+    <title>SigIn Beta</title>
+    <!-- Path to Framework7 Library CSS -->
+    <link rel="stylesheet" href="ext/fm7/css/framework7.min.css">
+    <!-- Path to your custom app styles-->
+    <link rel="stylesheet" href="css/estilo.css">
+  </head>
+  <body>
+    <!-- App root element -->
+    <div id="app">
+      <!-- Statusbar overlay -->
+      <div class="statusbar"></div>
+
+      <!-- Your main view, should have "view-main" class -->
+      <div class="view view-main">
+        <!-- Initial Page, "data-name" contains page name -->
+        <div data-name="home" class="page">
+
+          <!-- Top Navbar -->
+          <div class="navbar">
+            <div class="navbar-inner">
+              <div class="title">SignIn (beta)</div>
+            </div>
+          </div>
+
+         
+
+          <!-- Scrollable page content -->
+          <div class="page-content">
+            <p></p>
+
+            <form class="list" id="formulario">
+              <ul>
+               
+                <li class="item-content item-input">
+                  <!-- <div class="item-media"></div> -->
+                  <div class="item-inner">
+                   
+                    <div class="item-title item-floating-label">Nombre</div>
+                    <div class="item-input-wrap">
+                      <input type="text" name="nombre" id="nombre" required validate>
+                      <span class="input-clear-button"></span>
+                    </div>
+                  </div>
+                </li>
+                <li class="item-content item-input">
+                  <!-- <div class="item-media"></div> -->
+                  <div class="item-inner">
+                   
+                    <div class="item-title item-floating-label">Dni</div>
+                    <div class="item-input-wrap">
+                      <input type="text" name="dni" id="dni"  required validate pattern="[0-9]*[A-Za-z]" data-error-message="Dni no valido">
+                      <span class="input-clear-button"></span>
+                    </div>
+                  </div>
+                </li>
+                <li class="item-content item-input">
+                  <!-- <div class="item-media"></div> -->
+                  <div class="item-inner">
+                   
+                    <div class="item-title item-floating-label">Operario</div>
+                    <div class="item-input-wrap">
+                      <input type="text" name="operario" id="operario">
+                      <span class="input-clear-button"></span>
+                    </div>
+                  </div>
+                </li>
+                <li class="item-content item-input">
+                  <!-- <div class="item-media"></div> -->
+                  <div class="item-inner">
+                   
+                    <div class="item-title item-floating-label">Observaciones</div>
+                    <div class="item-input-wrap">
+                      <textarea name="observaciones" id="observaciones" cols="30" rows="5"></textarea>
+                      <!-- <span class="input-clear-button"></span> -->
+                    </div>
+                  </div>
+                </li>
+
+                <li class="item-content item-input">
+                        
+                        <div class="item-inner">
+                          <div class="item-title item-label">Instalacion</div>
+                          <div class="item-input-wrap">
+                            <select placeholder="Elija una opcion..." id= "instalacion" name="instalacion">
+                              <option value="">Elija una opcion ...</option>
+                              <option value="Oficina">Oficina</option>
+                              <option value="Taller">Taller</option>
+                              <option value="dpTrobajo">Dp.Trobajo</option>
+                              <option value="dpSanAndres">Dp.SanAndres</option>
+                              <option value="dpVillabalter">Dp.Villabalter</option>
+                              <option value="dpPinilla">Dp.Pinilla</option>
+                              <option value="Todas">Todas</option>
+                            </select>
+                          </div>
+                        </div>
+                 </li>
+                <div class="block block-strong">
+                <li class="item-content item-input">
+                  <!-- <div class="item-media"></div> -->
+                  <div class="item-inner">
+                   <div class="item-title item-label">Fecha</div>
+                    <div class="item-input-wrap">
+                      <input type="date" name="fecha" id="fecha" required validate>
+                      <span class="input-clear-button"></span>
+                    </div>
+                  </div>
+                </li>
+                <div class="block">
+                  <div class="row">
+                    <div class="col">
+                      <li class="item-content item-input">
+                        <!-- <div class="item-media"></div> -->
+                        <div class="item-inner">
+                          <div class="item-title item-label">Hora </div>
+                          <div class="item-input-wrap">
+                            <input type="time" name="hora" id="hora" required validate>
+                            <span class="input-clear-button"></span>
+                          </div>
+                        </div>
+                      </li>
+                    </div>
+                  <div class="col">
+                        <li class="item-content item-input">
+                        
+                        <div class="item-inner">
+                          <div class="item-title item-label">TIPO</div>
+                          <div class="item-input-wrap">
+                            <select placeholder="Please choose..." id="tipo" name= "tipo">
+                              <option value="Entrada">Entrada</option>
+                              <option value="Salida">Salida</option>
+                            </select>
+                          </div>
+                        </div>
+                      </li>
+                      </div>
+                    </div>
+                  </div>  
+
+
+
+
+
+                  <li class="">
+                  <!-- <div class="item-media"></div> -->
+                 
+                   
+                    <!-- <div class="item-title "></div> -->
+                     
+                      <input type="hidden" name="firma" id="firma"  disabled="">
+                      <!-- <span class="input-clear-button"></span> -->
+                
+                </li>
+
+               
+              </div> <!-- block -->
+             </ul>
+            </form>
+
+           
+            <div class="block"></div> 
+             <div class="block">
+              <br><label class="txt" for="">Firma:</label><br><br>
+                <div id="signatureparent">
+                    <div id="signature"></div>
+                </div>
+                <script src="ext/signature/lib/jquery.js"></script>
+                <script src="ext/signature/src/jSignature.js"></script>
+                <script src="ext/signature/src/plugins/jSignature.CompressorBase30.js"></script>
+                <script src="ext/signature/src/plugins/jSignature.CompressorSVG.js"></script>
+                <script src="ext/signature/src/plugins/jSignature.UndoButton.js"></script> 
+                
+             </div>
+
+              <div class="block block-strong row">
+              
+              <div class="col">
+                <br>
+                <a id="clear" class="button  button-fill clear-signature" href="#">Borrar firma</a>
+                <br>
+              </div>
+
+              <div class="col">
+                <br>
+                <a id="captura" class="button  button-fill convert-form-to-data" href="#">Enviar Datos</a>
+                
+                <br>
+              </div>
+              
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+ 
+
+
+    <!-- Path to Framework7 Library JS-->
+    <script type="text/javascript" src="ext/fm7/js/framework7.min.js"></script>
+    <!-- Path to your app js-->
+    <script type="text/javascript" src="js/my-app.js"></script>
+    
+  </body>
+</html>
