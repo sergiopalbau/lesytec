@@ -28,13 +28,36 @@
         <div class="panel-overlay"></div>
         <!-- Left panel with reveal effect-->
         <div class="panel panel-left panel-reveal">
+          <br><br>
             <div class="content-block">
-                <p>Explotacion:</p>
-                <p>Login</p>
-                <p>Yo que se</p>
+             <form class="list form-store-data" id="explotacion">
+                <ul>
+                  <li>
+                    <div class="item-content item-input">
+                      <div class="item-inner">
+                        <div class="item-title item-label">Explotacion</div>
+                        <div class="item-imput-wrap">
+                          <input type="text" name="explotacion">
+                        </div>
+                      </div>
+                    </div>  
+                  </li>
+                  <li>
+                    <div class="item-content item-input">
+                      <div class="item-inner">
+                        <div class="item-title item-label">Password</div>
+                        <div class="item-imput-wrap">
+                          <input type="pwd" name="Password">
+                        </div>
+                      </div>
+                    </div>  
+                  </li>
+                </ul>  
+                </form>    
+           
                  <p><a href="#" class="panel-close">Close me</a></p>
             </div>
-        </div>
+        
 
       <!-- Your main view, should have "view-main" class -->
       <div class="view view-main">
@@ -45,181 +68,183 @@
       <!-- Scrollable page content -->
           <div class="page-content">
                  <!-- Top Navbar -->
-          <div class="navbar">
-            <div class="navbar-inner">
-              <div class="title">SignIn (beta)</div>
-              <div class="right">
-                  <a href="#" class="panel-open link">Menu </a>
+            <div class="navbar">
+              <div class="navbar-inner">
+                <div class="title">SignIn (beta)</div>
+                <div class="right">
+                    <a href="#" class="panel-open link">Menu </a>
+                </div>
               </div>
             </div>
-          </div>
-            <p></p>
-             <p><a href="#" class="panel-open">Open Left Panel</a></p>
-            <form class="list" id="formulario">
-              <ul>
-               
-                <li class="item-content item-input">
-                  <!-- <div class="item-media"></div> -->
-                  <div class="item-inner">
-                   
-                    <div class="item-title item-floating-label">Nombre</div>
-                    <div class="item-input-wrap">
-                      <input type="text" name="nombre" id="nombre" required validate>
-                      <span class="input-clear-button"></span>
-                    </div>
-                  </div>
-                </li>
-                <li class="item-content item-input">
-                  <!-- <div class="item-media"></div> -->
-                  <div class="item-inner">
-                   
-                    <div class="item-title item-floating-label">Dni</div>
-                    <div class="item-input-wrap">
-                      <input type="text" name="dni" id="dni"  required validate pattern="[0-9]*[A-Za-z]" data-error-message="Dni no valido">
-                      <span class="input-clear-button"></span>
-                    </div>
-                  </div>
-                </li>
-                <li class="item-content item-input">
-                  <!-- <div class="item-media"></div> -->
-                  <div class="item-inner">
-                   
-                    <div class="item-title item-floating-label">Operario</div>
-                    <div class="item-input-wrap">
-                      <input type="text" name="operario" id="operario">
-                      <span class="input-clear-button"></span>
-                    </div>
-                  </div>
-                </li>
-                <li class="item-content item-input">
-                  <!-- <div class="item-media"></div> -->
-                  <div class="item-inner">
-                   
-                    <div class="item-title item-floating-label">Observaciones</div>
-                    <div class="item-input-wrap">
-                      <textarea name="observaciones" id="observaciones" cols="30" rows="5"></textarea>
-                      <!-- <span class="input-clear-button"></span> -->
-                    </div>
-                  </div>
-                </li>
-
-                <li class="item-content item-input">
-                        
-                        <div class="item-inner">
-                          <div class="item-title item-label">Instalacion</div>
-                          <div class="item-input-wrap">
-                            <select placeholder="Elija una opcion..." id= "instalacion" name="instalacion">
-                              <option value="">Elija una opcion ...</option>
-                              <option value="Oficina">Oficina</option>
-                              <option value="Taller">Taller</option>
-                              <option value="dpTrobajo">Dp.Trobajo</option>
-                              <option value="dpSanAndres">Dp.SanAndres</option>
-                              <option value="dpVillabalter">Dp.Villabalter</option>
-                              <option value="dpPinilla">Dp.Pinilla</option>
-                              <option value="Todas">Todas</option>
-                            </select>
-                          </div>
-                        </div>
-                 </li>
-                <div class="block block-strong">
-                <li class="item-content item-input">
-                  <!-- <div class="item-media"></div> -->
-                  <div class="item-inner">
-                   <div class="item-title item-label">Fecha</div>
-                    <div class="item-input-wrap">
-                      <input type="date" name="fecha" id="fecha" required validate>
-                      <span class="input-clear-button"></span>
-                    </div>
-                  </div>
-                </li>
-                <div class="block">
-                  <div class="row">
-                    <div class="col">
-                      <li class="item-content item-input">
-                        <!-- <div class="item-media"></div> -->
-                        <div class="item-inner">
-                          <div class="item-title item-label">Hora </div>
-                          <div class="item-input-wrap">
-                            <input type="time" name="hora" id="hora" required validate>
-                            <span class="input-clear-button"></span>
-                          </div>
-                        </div>
-                      </li>
-                    </div>
-                  <div class="col">
-                        <li class="item-content item-input">
-                        
-                        <div class="item-inner">
-                          <div class="item-title item-label">TIPO</div>
-                          <div class="item-input-wrap">
-                            <select placeholder="Please choose..." id="tipo" name= "tipo">
-                              <option value="Entrada">Entrada</option>
-                              <option value="Salida">Salida</option>
-                            </select>
-                          </div>
-                        </div>
-                      </li>
+              <p></p>
+              <i class="icon icon-back"></i>
+               <p><a href="#" class="panel-open">Open Left Panel</a></p>
+              <form class="list" id="formulario">
+                <ul>
+                 
+                  <li class="item-content item-input">
+                    <!-- <div class="item-media"></div> -->
+                    <div class="item-inner">
+                     
+                      <div class="item-title item-floating-label">Nombre</div>
+                      <div class="item-input-wrap">
+                        <input type="text" name="nombre" id="nombre" required validate>
+                        <span class="input-clear-button"></span>
                       </div>
                     </div>
-                  </div>  
-
-
-
-
-
-                  <li class="">
-                  <!-- <div class="item-media"></div> -->
-                 
-                   
-                    <!-- <div class="item-title "></div> -->
+                  </li>
+                  <li class="item-content item-input">
+                    <!-- <div class="item-media"></div> -->
+                    <div class="item-inner">
                      
-                      <input type="hidden" name="firma" id="firma"  disabled="">
-                      <!-- <span class="input-clear-button"></span> -->
+                      <div class="item-title item-floating-label">Dni</div>
+                      <div class="item-input-wrap">
+                        <input type="text" name="dni" id="dni"  required validate pattern="[0-9]*[A-Za-z]" data-error-message="Dni no valido">
+                        <span class="input-clear-button"></span>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="item-content item-input">
+                    <!-- <div class="item-media"></div> -->
+                    <div class="item-inner">
+                     
+                      <div class="item-title item-floating-label">Operario</div>
+                      <div class="item-input-wrap">
+                        <input type="text" name="operario" id="operario">
+                        <span class="input-clear-button"></span>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="item-content item-input">
+                    <!-- <div class="item-media"></div> -->
+                    <div class="item-inner">
+                     
+                      <div class="item-title item-floating-label">Observaciones</div>
+                      <div class="item-input-wrap">
+                        <textarea name="observaciones" id="observaciones" cols="30" rows="5"></textarea>
+                        <!-- <span class="input-clear-button"></span> -->
+                      </div>
+                    </div>
+                  </li>
+
+                  <li class="item-content item-input">
+                          
+                          <div class="item-inner">
+                            <div class="item-title item-label">Instalacion</div>
+                            <div class="item-input-wrap">
+                              <select placeholder="Elija una opcion..." id= "instalacion" name="instalacion">
+                                <option value="">Elija una opcion ...</option>
+                                <option value="Oficina">Oficina</option>
+                                <option value="Taller">Taller</option>
+                                <option value="dpTrobajo">Dp.Trobajo</option>
+                                <option value="dpSanAndres">Dp.SanAndres</option>
+                                <option value="dpVillabalter">Dp.Villabalter</option>
+                                <option value="dpPinilla">Dp.Pinilla</option>
+                                <option value="Todas">Todas</option>
+                              </select>
+                            </div>
+                          </div>
+                   </li>
+                  <div class="block block-strong">
+                  <li class="item-content item-input">
+                    <!-- <div class="item-media"></div> -->
+                    <div class="item-inner">
+                     <div class="item-title item-label">Fecha</div>
+                      <div class="item-input-wrap">
+                        <input type="date" name="fecha" id="fecha" required validate>
+                        <span class="input-clear-button"></span>
+                      </div>
+                    </div>
+                  </li>
+                  <div class="block">
+                    <div class="row">
+                      <div class="col">
+                        <li class="item-content item-input">
+                          <!-- <div class="item-media"></div> -->
+                          <div class="item-inner">
+                            <div class="item-title item-label">Hora </div>
+                            <div class="item-input-wrap">
+                              <input type="time" name="hora" id="hora" required validate>
+                              <span class="input-clear-button"></span>
+                            </div>
+                          </div>
+                        </li>
+                      </div>
+                    <div class="col">
+                          <li class="item-content item-input">
+                          
+                          <div class="item-inner">
+                            <div class="item-title item-label">TIPO</div>
+                            <div class="item-input-wrap">
+                              <select placeholder="Please choose..." id="tipo" name= "tipo">
+                                <option value="Entrada">Entrada</option>
+                                <option value="Salida">Salida</option>
+                              </select>
+                            </div>
+                          </div>
+                        </li>
+                        </div>
+                      </div>
+                    </div>  
+
+
+
+
+
+                    <li class="">
+                    <!-- <div class="item-media"></div> -->
+                   
+                     
+                      <!-- <div class="item-title "></div> -->
+                       
+                        <input type="hidden" name="firma" id="firma"  disabled="">
+                        <!-- <span class="input-clear-button"></span> -->
+                  
+                  </li>
+
+                 
+                </div> <!-- block -->
+               </ul>
+              </form>
+
+             
+              <div class="block"></div> 
+               <div class="block">
+                <br><label class="txt" for="">Firma:</label><br><br>
+                  <div id="signatureparent">
+                      <div id="signature"></div>
+                  </div>
+                  <script src="ext/signature/lib/jquery.js"></script>
+                  <script src="ext/signature/src/jSignature.js"></script>
+                  <script src="ext/signature/src/plugins/jSignature.CompressorBase30.js"></script>
+                  <script src="ext/signature/src/plugins/jSignature.CompressorSVG.js"></script>
+                  <script src="ext/signature/src/plugins/jSignature.UndoButton.js"></script> 
+                  
+               </div>
+
+                <div class="block block-strong row">
                 
-                </li>
-
-               
-              </div> <!-- block -->
-             </ul>
-            </form>
-
-           
-            <div class="block"></div> 
-             <div class="block">
-              <br><label class="txt" for="">Firma:</label><br><br>
-                <div id="signatureparent">
-                    <div id="signature"></div>
+                <div class="col">
+                  <br>
+                  <a id="clear" class="button  button-fill clear-signature" href="#">Borrar firma</a>
+                  <br>
                 </div>
-                <script src="ext/signature/lib/jquery.js"></script>
-                <script src="ext/signature/src/jSignature.js"></script>
-                <script src="ext/signature/src/plugins/jSignature.CompressorBase30.js"></script>
-                <script src="ext/signature/src/plugins/jSignature.CompressorSVG.js"></script>
-                <script src="ext/signature/src/plugins/jSignature.UndoButton.js"></script> 
-                
-             </div>
 
-              <div class="block block-strong row">
-              
-              <div class="col">
-                <br>
-                <a id="clear" class="button  button-fill clear-signature" href="#">Borrar firma</a>
-                <br>
-              </div>
-
-              <div class="col">
-                <br>
-                <a id="captura" class="button  button-fill convert-form-to-data" href="#">Enviar Datos</a>
+                <div class="col">
+                  <br>
+                  <a id="captura" class="button  button-fill convert-form-to-data" href="#">Enviar Datos</a>
+                  
+                  <br>
+                </div>
                 
-                <br>
               </div>
-              
-            </div>
 
 
           </div>
         </div>
       </div>
     </div>
+  </div>
 
  
 
