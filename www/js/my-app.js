@@ -89,10 +89,16 @@ $("#clear").click (function(){
                 },
                 url: 'http://192.168.1.7/proyectoSignin/web/conf.php',
                 type: 'get',
-                beforeSend: function () { alert ("procesando");},
+                beforeSend: function () { $("#peticion").html('Procesando ...');;},
                 success: function (response) {
-                   $("#peticion").html(response);
-                  // body...
+                   var obj = JSON.parse(response)
+                   if (obj.msg != 'ok'){
+                         $("#peticion").html('-- Fallo en los credenciales -- ');
+                         return;
+                    }
+
+                    
+                  $("#peticion").html(response);
                 }
       })
     });
