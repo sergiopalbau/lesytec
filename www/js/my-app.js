@@ -70,7 +70,33 @@ $("#clear").click (function(){
       var formData = app.form.convertToData('#formulario');
       act_bbdd (formData);
     }
+
   });
+
+  // por ajax enviamos el formulario para que nos de la configuracion.
+  $("#recupera").click (function(){
+      var exp =  $("#explotacion").val();
+      var pwd =  $("#password").val();
+      // comprobar que no estan vacios.
+      if (exp == "" || pwd =="" ){
+        alert ("rellene los campos explotacion y password");
+        return;
+      }
+      $.ajax ({
+                data: {
+                  "explotacion" : exp,
+                  "password" : pwd
+                },
+                url: 'http://192.168.1.7/proyectoSignin/web/conf.php',
+                type: 'get',
+                beforeSend: function () { alert ("procesando");},
+                success: function (response) {
+                   $("#peticion").html(response);
+                  // body...
+                }
+      })
+    });
+
 
 
 //--------------------------------------
