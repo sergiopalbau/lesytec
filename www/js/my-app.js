@@ -108,6 +108,17 @@ $("#clear").click (function(){
                     $("#instalacion").append(cad);
 
                   }
+                  //vamos a intentar llenar el select dinamicamente.
+                  var cnt = obj.operario.length;
+                  var cad = "";
+                  for (var i = 0; i < cnt; i++) {
+                    cad = "<option value = '" + obj.operario[i][0] + "'>"+ obj.operario[i][1] + "</option>";
+                    $("#peticion").append(cad);
+                    $("#operario2").append(cad);
+
+                  }
+
+
                 }
       })
     });
