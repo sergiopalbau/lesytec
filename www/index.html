@@ -11,12 +11,24 @@
      <script src="ext/signature/lib/modernizr.js"></script>
 
      
-      
+      <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+      <script>
+        // Initialize Firebase
+        var config = {
+          apiKey: "AIzaSyAYdYuZir-qAVvWHsVdw3ri5CrOoFniJQ4",
+          authDomain: "signin-25095.firebaseapp.com",
+          databaseURL: "https://signin-25095.firebaseio.com",
+          projectId: "signin-25095",
+          storageBucket: "signin-25095.appspot.com",
+          messagingSenderId: "229931503652"
+        };
+        firebase.initializeApp(config);
+      </script>
 
 
-
+    <!-- Your app title -->
     <title>SigIn Beta</title>
-    
+    <!-- Path to Framework7 Library CSS -->
     <link rel="stylesheet" href="ext/fm7/css/framework7.min.css">
     <!-- Path to your custom app styles-->
     <link rel="stylesheet" href="css/estilo.css">
@@ -24,45 +36,25 @@
   <body>
     <!-- App root element -->
     <div id="app">
-
-        <div class="panel-overlay"></div>
+       <div class="panel-overlay"></div>
         <!-- Left panel with reveal effect-->
         <div class="panel panel-left panel-reveal">
-          <br><br>
             <div class="content-block">
-             <form class="list form-store-data" id="explotacion">
-                <ul>
-                  <li>
-                    <div class="item-content item-input">
-                      <div class="item-inner">
-                        <div class="item-title item-label">Explotacion</div>
-                        <div class="item-imput-wrap">
-                          <input type="text" name="explotacion">
-                        </div>
-                      </div>
-                    </div>  
-                  </li>
-                  <li>
-                    <div class="item-content item-input">
-                      <div class="item-inner">
-                        <div class="item-title item-label">Password</div>
-                        <div class="item-imput-wrap">
-                          <input type="pwd" name="Password">
-                        </div>
-                      </div>
-                    </div>  
-                  </li>
-                </ul>  
-                </form>    
-           
+                <p>Explotacion:</p>
+                <p>Login</p>
+                <p>Yo que se</p>
                  <p><a href="#" class="panel-close">Close me</a></p>
             </div>
+        </div>
         
 
+      <!-- Statusbar overlay -->
+      <div class="statusbar"></div>
       <!-- Your main view, should have "view-main" class -->
       <div class="view view-main">
         <!-- Initial Page, "data-name" contains page name -->
         <div data-name="home" class="page">
+
       <!-- Statusbar overlay -->
       <div class="statusbar"></div>
       <!-- Scrollable page content -->
@@ -76,21 +68,40 @@
                 </div>
               </div>
             </div>
-              <p></p>
-              <i class="icon icon-back"></i>
+           
                <p><a href="#" class="panel-open">Open Left Panel</a></p>
-              <form class="list" id="formulario">
-                <ul>
-                 
-                  <li class="item-content item-input">
-                    <!-- <div class="item-media"></div> -->
-                    <div class="item-inner">
-                     
-                      <div class="item-title item-floating-label">Nombre</div>
-                      <div class="item-input-wrap">
-                        <input type="text" name="nombre" id="nombre" required validate>
-                        <span class="input-clear-button"></span>
-                      </div>
+              
+          <!-- </div> -->
+
+         
+
+          <!-- Scrollable page content -->
+          <!-- <div class="page-content"> -->
+            <!-- <p></p> -->
+
+            <form class="list" id="formulario">
+              <ul>
+               
+                <li class="item-content item-input">
+                  <!-- <div class="item-media"></div> -->
+                  <div class="item-inner">
+                   
+                    <div class="item-title item-floating-label">Nombre</div>
+                    <div class="item-input-wrap">
+                      <input type="text" name="nombre" id="nombre" required validate>
+                      <span class="input-clear-button"></span>
+                    </div>
+                  </div>
+                </li>
+                <li class="item-content item-input">
+                  <!-- <div class="item-media"></div> -->
+                  <div class="item-inner">
+                   
+                    <div class="item-title item-floating-label">Dni</div>
+                    <div class="item-input-wrap">
+                      <input type="text" name="dni" id="dni"  required validate pattern="[0-9]*[A-Za-z]" data-error-message="Dni no valido">
+                      <span class="input-clear-button"></span>
+
                     </div>
                   </li>
                   <li class="item-content item-input">
