@@ -6,10 +6,11 @@ var app = new Framework7({
   name: 'SignIn',
   // App id
   id: 'es.lesytec',
+  material: true,
   // Enable swipe panel
-  panel: {
+  /*panel: {
     swipe: 'left',
-  },
+  },*/
   picker: {
     rotateEffect: false,
     openIn: 'popover',
