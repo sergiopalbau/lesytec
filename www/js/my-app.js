@@ -97,8 +97,17 @@ $("#clear").click (function(){
                          return;
                     }
 
-                    
                   $("#peticion").html(response);
+
+                  //vamos a intentar llenar el select dinamicamente.
+                  var cnt = obj.instalacion.length;
+                  var cad = "";
+                  for (var i = 0; i < cnt; i++) {
+                    cad = "<option value = '" + obj.instalacion[i][0] + "'>"+ obj.instalacion[i][1] + "</option>";
+                    $("#peticion").append(cad);
+                    $("#instalacion").append(cad);
+
+                  }
                 }
       })
     });
