@@ -11,24 +11,12 @@
      <script src="ext/signature/lib/modernizr.js"></script>
 
      
-      <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
-      <script>
-        // Initialize Firebase
-        var config = {
-          apiKey: "AIzaSyAYdYuZir-qAVvWHsVdw3ri5CrOoFniJQ4",
-          authDomain: "signin-25095.firebaseapp.com",
-          databaseURL: "https://signin-25095.firebaseio.com",
-          projectId: "signin-25095",
-          storageBucket: "signin-25095.appspot.com",
-          messagingSenderId: "229931503652"
-        };
-        firebase.initializeApp(config);
-      </script>
+      
 
 
-    <!-- Your app title -->
+
     <title>SigIn Beta</title>
-    <!-- Path to Framework7 Library CSS -->
+    
     <link rel="stylesheet" href="ext/fm7/css/framework7.min.css">
     <!-- Path to your custom app styles-->
     <link rel="stylesheet" href="css/estilo.css">
@@ -36,27 +24,37 @@
   <body>
     <!-- App root element -->
     <div id="app">
-      <!-- Statusbar overlay -->
-      <div class="statusbar"></div>
+
+        <div class="panel-overlay"></div>
+        <!-- Left panel with reveal effect-->
+        <div class="panel panel-left panel-reveal">
+            <div class="content-block">
+                <p>Explotacion:</p>
+                <p>Login</p>
+                <p>Yo que se</p>
+                 <p><a href="#" class="panel-close">Close me</a></p>
+            </div>
+        </div>
 
       <!-- Your main view, should have "view-main" class -->
       <div class="view view-main">
         <!-- Initial Page, "data-name" contains page name -->
         <div data-name="home" class="page">
-
-          <!-- Top Navbar -->
+      <!-- Statusbar overlay -->
+      <div class="statusbar"></div>
+      <!-- Scrollable page content -->
+          <div class="page-content">
+                 <!-- Top Navbar -->
           <div class="navbar">
             <div class="navbar-inner">
               <div class="title">SignIn (beta)</div>
+              <div class="right">
+                  <a href="#" class="panel-open link">Menu </a>
+              </div>
             </div>
           </div>
-
-         
-
-          <!-- Scrollable page content -->
-          <div class="page-content">
             <p></p>
-
+             <p><a href="#" class="panel-open">Open Left Panel</a></p>
             <form class="list" id="formulario">
               <ul>
                
