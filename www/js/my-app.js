@@ -1,21 +1,19 @@
 
+
 var app = new Framework7({
-  // App root element
+  // elemento raiz
   root: '#app',
-  // App Name
+  ///nombre app
   name: 'SignIn',
-  // App id
+  //id de app
   id: 'es.lesytec',
   material: true,
-  // Enable swipe panel
-  /*panel: {
-    swipe: 'left',
-  },*/
+  
   picker: {
     rotateEffect: false,
     openIn: 'popover',
   },
-  // Add default routes
+  // rutas por defecto
   routes: [
   {
     path: '/condiciones/',
@@ -27,7 +25,6 @@ var app = new Framework7({
   }
   ],
 
-  // ... other parameters
 });
 
 
@@ -35,49 +32,51 @@ var app = new Framework7({
 var mainView = app.views.create('.view-main');
 var $$=Dom7;
 
-var pickerDevice = app.picker.create({
-  input: '#demo-picker-device',
-  cols: [
-  {
-    textAlign: 'center',
-      // values: ['iPhone 4', 'iPhone 4S', 'iPhone 5', 'iPhone 5S', 'iPhone 6', 'iPhone 6 Plus', 'iPad 2', 'iPad Retina', 'iPad Air', 'iPad mini', 'iPad mini 2', 'iPad mini 3']
-      values: ['apple', 'orange', 'bananna'],
-      displayValues: ['Apple', 'Orange', 'Bananna'],
-    }
-    ]
-  });
-$('#fecha').val(fechaActual());
+  // seteamos la fecha actual en el  formulario.
+ $('#fecha').val(fechaActual());
+
 // captura datos formulario
 
 /*$$('.convert-form-to-data').on('click', function(){
   var formData = app.form.convertToData('#formulario');
   alert(JSON.stringify(formData));
 });*/
+
+//CAPTURAR FIRMA -------------------------------------------------
 //incializar el pad
 $("#signature").jSignature({'height':290, 'width':270});
+
+//Evento generado por el boton limpiar, borra el canvas.
 $("#clear").click (function(){
-                                
-  $("#signature").jSignature("clear");
+     $("#signature").jSignature("clear");
 });
-  //capturar en una variable la firma.
+
+
+//Evento al pulsar el boto enviar, captura por una parte los datos de login, la firma y el formulario.
   $("#captura").click (function(){
+
      // capturamos la firma en un hidden                               
      $('#firma').val($("#signature").jSignature("getData", "base30"));
 
     var capturaFirma = $("#signature").jSignature("getData", "base30");
- 		//alert(JSON.stringify(formData));
+ 		
      if (capturaFirma[1]===""){
 
        alert (" Firma vacia.");
        return;
      }else{
       var formData = app.form.convertToData('#formulario');
-      act_bbdd (formData);
+      alert(JSON.stringify(formData));
+
+     //act_bbdd (formData); // para firebase----------------------
     }
 
   });
 
+  //--- LOGIN --------------------------------------------------------
   // por ajax enviamos el formulario para que nos de la configuracion.
+  //------------------------------------------------------------------/-
+
   $("#recupera").click (function(){
       var exp =  $("#explotacion").val();
       var pwd =  $("#password").val();
@@ -103,7 +102,7 @@ $("#clear").click (function(){
 
                   $("#peticion").html(response);
 
-                  //vamos a intentar llenar el select dinamicamente.
+                  //llenar el select dinamicamente.
                   var cnt = obj.instalacion.length;
                   var cad = "";
                   for (var i = 0; i < cnt; i++) {
@@ -129,12 +128,12 @@ $("#clear").click (function(){
 
 
 
-//--------------------------------------
+/**--------------------------------------
+* fechaActual -- recoje la hora actual para poder asignarla a un campo
+*/
 function fechaActual ()
 {
  var dt = new Date();
-
-	// Display the month, day, and year. getMonth() returns a 0-based number.
 
   if ((dt.getMonth()+1) <10){
 
@@ -156,12 +155,13 @@ function fechaActual ()
 
 
  return fecha;
-
-	// Output: current month, day, year
+ //devuelve actual mes, dia, año
+	
 }
 
-  //-----------------------------------------
-
+  /**----------------------------------------------------------------
+  * funcion para usar la bbdd de firebase (anulada para el proyecto)
+  */
   function act_bbdd (data) {
     // logeamos el usuario.
     const auth = firebase.auth();
@@ -171,7 +171,9 @@ function fechaActual ()
       if (firebaseUser){
         console.log('logueado');
         var db = firebase.firestore();
-        const settings = {/* your settings... */ timestampsInSnapshots: true};
+        const settings = {/* your settings... */ 
+
+        timestampsInSnapshots: true};
         db.settings(settings);
         db.collection("registro").add(data)
         .then(function(docRef) {
@@ -197,3 +199,5 @@ function fechaActual ()
   function limpiaForm (){
 
   }
+
+  
