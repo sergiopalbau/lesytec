@@ -7,7 +7,7 @@
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<!-- Color theme for statusbar -->
 		<meta name="theme-color" content="#2196f3">
-
+		
 		 <script src="ext/signature/lib/modernizr.js"></script>
 
 		 
@@ -136,7 +136,7 @@
 													<div class="item-inner">
 														<div class="item-title item-label">Operario</div>
 														<div class="item-input-wrap input-dropdown-wrap">
-															<select placeholder="Elija una opcion..." id= "operario2" name="operario2">
+															<select placeholder="Elija una opcion..." id= "operario2" name="operario2" required validate>
 																<!-- se autocargan al hacer login-->
 															</select>
 														</div>
@@ -146,14 +146,14 @@
 										<li class="item-content item-input">
 											<a href="/condiciones/" class="link">¿Acepta las condiciones?</a>
 											 <label class="toggle toggle-init color-green" for="condiciones">
-												<input type="checkbox" id="condiciones" name="condiciones" required>
+												<input type="checkbox" id="condiciones" name="condiciones" required validate>
 												<span class="toggle-icon"></span>
 											 </label>
 										</li>
 										<li class="item-content item-input">
 											<a href="/reglas/" class="link">¿Acepta Reglas que salvan?</a>
 											 <label class="toggle toggle-init color-green" for="prl">
-												<input type="checkbox" id="prl" name="prl" required>
+												<input type="checkbox" id="prl" name="prl" required validate>
 												<span class="toggle-icon"></span>
 											 </label>
 										</li>
