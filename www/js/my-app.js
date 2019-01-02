@@ -51,7 +51,7 @@ $("#clear").click (function(){
      $("#signature").jSignature("clear");
 });
 
-
+//Enviar form ------------------------------------------------------------------------------------------
 //Evento al pulsar el boto enviar, captura por una parte los datos de login, la firma y el formulario.
   $("#captura").click (function(){
 
@@ -60,6 +60,7 @@ $("#clear").click (function(){
 
     var capturaFirma = $("#signature").jSignature("getData", "base30");
  		
+    // validaciones del formulario.---------
      if (capturaFirma[1]===""){
 
         app.dialog.alert("Firma vacia", "Formulario incompleto");
@@ -82,17 +83,44 @@ $("#clear").click (function(){
       app.dialog.alert("Las reglas que salvan tienen que ser aceptadas", "Formulario incompleto");
       return;
       }
-
+    //fin validaciones ---------------------
+    $('#exp').val( $("#explotacion").val());
+    $('#pwd').val( $("#password").val());
 
       var formData = app.form.convertToData('#formulario');
-      alert(JSON.stringify(formData));
+      envioAjax(formData);
+     //alert(JSON.stringify(formData));
 
      //act_bbdd (formData); // para firebase----------------------
     
      
 
   });
+  function envioAjax (parametros)
+  {
+    alert (parametros);
+    alert(JSON.stringify(parametros));
+         $.ajax ({
+                data: parametros,
+                url: 'http://192.168.1.7/proyectoSignin/web/conf2.php',
+                type: 'get',
+                beforeSend: function () { $("#peticion").html('Procesando ...'); app.dialog.preloader();},
+                success: function (response) {
+                    setTimeout(function () {
+                          app.dialog.close();
+                          }, 100);
+                   var obj = JSON.parse(response)
+                   if (obj.msg != 'ok'){
+                         $("#peticion").html('-- Fallo en los credenciales -- ');
+                         return;
+                    }
 
+                  $("#peticion").html(response);
+                }
+
+    }
+  }
+  
   //--- LOGIN --------------------------------------------------------
   // por ajax enviamos el formulario para que nos de la configuracion.
   //------------------------------------------------------------------/-
