@@ -62,14 +62,34 @@ $("#clear").click (function(){
  		
      if (capturaFirma[1]===""){
 
-       alert (" Firma vacia.");
+        app.dialog.alert("Firma vacia", "Formulario incompleto");
        return;
-     }else{
+     }//else{//  Anulamos para hacer la prueba de validacion del form por jquery. ojo a la llave de cierre si hay que voler
+
+     if (!($("#formulario")[0].checkValidity())){
+       app.dialog.alert("Campos incorrectos", "Formulario incompleto");
+      return;
+     }
+
+     if (!$('#condiciones').is(':checked'))
+     {
+      app.dialog.alert("Las Condiciones tienen que ser aceptadas", "Formulario incompleto");
+      return;
+      }
+
+    if (!$('#prl').is(':checked'))
+     {
+      app.dialog.alert("Las reglas que salvan tienen que ser aceptadas", "Formulario incompleto");
+      return;
+      }
+
+
       var formData = app.form.convertToData('#formulario');
       alert(JSON.stringify(formData));
 
      //act_bbdd (formData); // para firebase----------------------
-    }
+    
+     
 
   });
 
