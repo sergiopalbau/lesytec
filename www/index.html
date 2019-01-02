@@ -11,7 +11,7 @@
 		 <script src="ext/signature/lib/modernizr.js"></script>
 
 		 
-			<script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+			<!-- <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
 			<script>
 				// Initialize Firebase
 				var config = {
@@ -23,7 +23,7 @@
 					messagingSenderId: "229931503652"
 				};
 				firebase.initializeApp(config);
-			</script>
+			</script> -->
 
 
 		<!-- Your app title -->
@@ -133,10 +133,9 @@
 													
 													<div class="item-inner">
 														<div class="item-title item-label">Operario</div>
-														<div class="item-input-wrap">
+														<div class="item-input-wrap input-dropdown-wrap">
 															<select placeholder="Elija una opcion..." id= "operario2" name="operario2">
-																<option value="">Elija una opcion ...</option>
-																
+																<!-- se autocargan al hacer login-->
 															</select>
 														</div>
 													</div>
@@ -144,14 +143,14 @@
 									<div class="list simple-list">
 										<li class="item-content item-input">
 											<span> ¿Acepta concdiciones?</span>
-											 <label class="toggle toggle-init color-green">
+											 <label class="toggle toggle-init color-green" for="condiciones">
 												<input type="checkbox" id="condiciones" name="condiciones" required>
 												<span class="toggle-icon"></span>
 											 </label>
 										</li>
 										<li class="item-content item-input">
 											<span> ¿Acepta Reglas que salvan?</span>
-											 <label class="toggle toggle-init color-green">
+											 <label class="toggle toggle-init color-green" for="prl">
 												<input type="checkbox" id="prl" name="prl" required>
 												<span class="toggle-icon"></span>
 											 </label>
@@ -172,9 +171,9 @@
 									<li class="item-content item-input">
 										<div class="item-inner">
 											<div class="item-title item-label">Instalacion</div>
-											<div class="item-input-wrap">
+											<div class="item-input-wrap input-dropdown-wrap">
 												<select placeholder="Elija una opcion..." id= "instalacion" name="instalacion">
-													<option value="">Elija una opcion ...</option>
+													<!-- se autocargan al hacer login-->
 												</select>
 											</div>
 										</div>
