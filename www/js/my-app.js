@@ -112,8 +112,11 @@ $("#clear").click (function(){
                 },
                 url: 'http://192.168.1.7/proyectoSignin/web/conf.php',
                 type: 'get',
-                beforeSend: function () { $("#peticion").html('Procesando ...');;},
+                beforeSend: function () { $("#peticion").html('Procesando ...'); app.dialog.preloader();},
                 success: function (response) {
+                    setTimeout(function () {
+                          app.dialog.close();
+                          }, 300);
                    var obj = JSON.parse(response)
                    if (obj.msg != 'ok'){
                          $("#peticion").html('-- Fallo en los credenciales -- ');
