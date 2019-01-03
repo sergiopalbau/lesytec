@@ -10,23 +10,7 @@
 		
 		 <script src="ext/signature/lib/modernizr.js"></script>
 
-		 
-			<!-- <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
-			<script>
-				// Initialize Firebase
-				var config = {
-					apiKey: "AIzaSyAYdYuZir-qAVvWHsVdw3ri5CrOoFniJQ4",
-					authDomain: "signin-25095.firebaseapp.com",
-					databaseURL: "https://signin-25095.firebaseio.com",
-					projectId: "signin-25095",
-					storageBucket: "signin-25095.appspot.com",
-					messagingSenderId: "229931503652"
-				};
-				firebase.initializeApp(config);
-			</script> -->
-
-
-		<!-- Your app title -->
+		 			
 		<title>SigIn Beta</title>
 		<!-- Path to Framework7 Library CSS -->
 		<link rel="stylesheet" href="ext/fm7/css/framework7.min.css">
@@ -40,7 +24,7 @@
 				<!-- Left panel with reveal effect-->
 				<div class="panel panel-left panel-reveal">
 						<div class="content-block">
-								<p>Rellene los credenciales:</p>
+								<p class="text-align-center">Rellene los credenciales:</p>
 								 <form class="list form-store-data" id="my-form">
 									<ul>
 										<li>
@@ -68,7 +52,8 @@
 												<div class="item-inner">
 													<div class="item-title item-label">URL</div>
 													<div class="item-input-wrap">
-														<input type="text" name="idurl" id="idurl" placeholder="password" value="http://clasesparticularesleon.es/conf.php/">
+														<!-- <input type="text" name="idurl" id="idurl" placeholder="password" value="http://clasesparticularesleon.es/conf.php/"> -->
+														<input type="text" name="idurl" id="idurl" placeholder="password" value="http://192.168.1.7/proyectoSignin/web/">
 													</div>
 												</div>
 											</div>
@@ -112,16 +97,10 @@
 							</div>
 						</div>
 					 	<p></p>
-					 	<p></p>
-						 <p><a href="#" class="panel-open">Open Left Panel</a></p>
-						 <p id="peticion">*</p>
-					<!-- </div> -->
 
-				 
-
-					<!-- Scrollable page content -->
-					<!-- <div class="page-content"> -->
-						<!-- <p></p> -->
+					 	<!-- espacio reservado para notificaciones -->
+					 	<p id="peticion"></p>
+					
 
 						<form class="list" id="formulario">
 							<ul>
@@ -149,15 +128,14 @@
 										</div>
 									</li>
 									 <li class="item-content item-input">
-													
-													<div class="item-inner">
-														<div class="item-title item-label">Operario</div>
-														<div class="item-input-wrap input-dropdown-wrap">
-															<select placeholder="Elija una opcion..." id= "operario2" name="operario2" required validate>
-																<!-- se autocargan al hacer login-->
-															</select>
-														</div>
-													</div>
+										<div class="item-inner">
+											<div class="item-title item-label">Operario</div>
+											<div class="item-input-wrap input-dropdown-wrap">
+												<select placeholder="Elija una opcion..." id= "operario2" name="operario2" required validate>
+													<!-- se autocargan al hacer login-->
+												</select>
+											</div>
+										</div>
 									 </li>
 									<div class="list simple-list">
 										<li class="item-content item-input">
@@ -225,7 +203,7 @@
 											<div class="col">
 												<li class="item-content item-input">
 													<div class="item-inner">
-														<div class="item-title item-label">Hora Sal </div>
+														<div class="item-title item-label">Hora Sal.Est </div>
 														<div class="item-input-wrap">
 															<input type="time" name="horaSal" id="horaSal" required validate>
 															<span class="input-clear-button"></span>
