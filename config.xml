@@ -2,11 +2,39 @@
 <widget id="es.lesytec" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>lesytec</name>
     <description>
-        A blank PhoneGap app.
+       Registro de firmas para SignIN
     </description>
-    <author email="support@phonegap.com" href="http://phonegap.com">
-        PhoneGap Team
+    <author email="dawspb16@gmail.com.com" href="http://lesytec.es">
+        SPB - Lesytec
     </author>
+    
     <content src="index.html" />
+    <acceso origin ="*" />
+    <icon src="icono.png" />
+    <splash src="splash.png"/>
+
+     <gap:platform name="android" />
+    <preference name="orientation" value="portrait"/>
+    <preference name="fullscreen" value="false"/>
+    <preference name="android-installLocation" value="auto"/>
+    <preference name="SplashScreenDela" value="10000"/>
+    
+    <plugin name="cordova-plugin-whitelist" spec="1" />
+    <plugin name="cordova-plugin-splashscreen" spec="~4.0.0" />
+
     <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    
+       
+    <platform name="android">
+        <allow-intent href="market:*" />
+    </platform>
+    <platform name="ios">
+        <allow-intent href="itms:*" />
+        <allow-intent href="itms-apps:*" />
+    </platform>
+
+
+
 </widget>
