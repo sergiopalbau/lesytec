@@ -10,8 +10,8 @@
     
     <content src="index.html" />
     <acceso origin ="*" />
-    <icon src="icono.png" />
-    <splash src="splash.png"/>
+    <icon src="www/img/logo.png" />
+    <splash src="www/img/splash.png"/>
 
      <gap:platform name="android" />
     <preference name="orientation" value="portrait"/>
