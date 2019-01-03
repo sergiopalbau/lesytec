@@ -130,6 +130,7 @@ $("#clear").click (function(){
       var exp =  $("#explotacion").val();
       var pwd =  $("#password").val();
       var direccion = $('#idurl').val() + 'conf.php';
+      alert ('direccion');
       // comprobar que no estan vacios.
       if (exp == "" || pwd =="" ){
         alert ("rellene los campos explotacion y password");
