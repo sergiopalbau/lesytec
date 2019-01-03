@@ -1,5 +1,6 @@
 
 
+
 var app = new Framework7({
   // elemento raiz
   root: '#app',
@@ -34,6 +35,9 @@ var $$=Dom7;
 
   // seteamos la fecha actual en el  formulario.
  $('#fecha').val(fechaActual());
+
+ // si estan guardados los recuperamos.
+ recuperaCredenciales();
 
 // captura datos formulario
 
@@ -130,10 +134,10 @@ $("#clear").click (function(){
       var exp =  $("#explotacion").val();
       var pwd =  $("#password").val();
       var direccion = $('#idurl').val() + 'conf.php';
-      alert (direccion);
+      
       // comprobar que no estan vacios.
       if (exp == "" || pwd =="" ){
-        alert ("rellene los campos explotacion y password");
+        app.dialog.alert ("rellene los campos explotacion y password");
         return;
       }
 
@@ -152,6 +156,7 @@ $("#clear").click (function(){
                    var obj = JSON.parse(response)
                    if (obj.msg != 'ok'){
                          $("#peticion").html('-- Fallo en los credenciales -- ');
+                         app.dialog.alert("Fallo en los credenciales");
                          return;
                     }
 
@@ -251,8 +256,44 @@ function fechaActual ()
   }
 
   // ----------------------------------------------------
-  function limpiaForm (){
+  // RECUPERAR / GUARDAR EN LOCAL STORAGE LOS CRENDENCIALES
+  $('#guarda').click (guardaCredenciales);
+
+  function guardaCredenciales (){
+
+    // recuperamos el valor seteado.
+    var exp =  $("#explotacion").val();
+    var pwd =  $("#password").val();
+
+    //comprobamos que no estan vacios.
+    if (exp == "" || pwd =="" ){
+        app.dialog.alert ("rellene los campos explotacion y password");
+        return;
+      }
+    
+ 
+
+    // Se guardan valores en local storage.
+
+    localStorage.setItem("explotacion", exp);
+    localStorage.setItem("password",pwd);
+
+    app.dialog.alert("Credenciales guardados.");
 
   }
 
+  function recuperaCredenciales (){
+    if("explotacion" in localStorage){
+      var exp = localStorage.getItem("explotacion");
+      alert (exp);
+      $("#explotacion").val(exp);
+    }
+
+    if("password" in localStorage){
+      var pwd =localStorage.getItem("password");
+      alert (pwd);
+      $("#password").val(pwd);
+    }
+
+  }
   
