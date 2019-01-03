@@ -126,65 +126,7 @@ $("#clear").click (function(){
     })
   }
   
-  //--- LOGIN --------------------------------------------------------
-  // por ajax enviamos el formulario para que nos de la configuracion.
-  //------------------------------------------------------------------/-
-
-  $("#recupera").click (function(){
-      var exp =  $("#explotacion").val();
-      var pwd =  $("#password").val();
-      var direccion = $('#idurl').val() + 'conf.php';
-      
-      // comprobar que no estan vacios.
-      if (exp == "" || pwd =="" ){
-        app.dialog.alert ("rellene los campos explotacion y password");
-        return;
-      }
-
-      $.ajax ({
-                data: {
-                  "explotacion" : exp,
-                  "password" : pwd
-                },
-                url: direccion,
-                type: 'get',
-                beforeSend: function () { $("#peticion").html('Procesando ...'); app.dialog.preloader();},
-                success: function (response) {
-                    setTimeout(function () {
-                          app.dialog.close();
-                          }, 300);
-                   var obj = JSON.parse(response)
-                   if (obj.msg != 'ok'){
-                         $("#peticion").html('-- Fallo en los credenciales -- ');
-                         app.dialog.alert("Fallo en los credenciales");
-                         return;
-                    }
-
-                 // $("#peticion").html(response);
-
-                  //llenar el select dinamicamente.
-                  var cnt = obj.instalacion.length;
-                  var cad = "";
-                  for (var i = 0; i < cnt; i++) {
-                    cad = "<option value = '" + obj.instalacion[i][0] + "'>"+ obj.instalacion[i][1] + "</option>";
-                    //$("#peticion").append(cad);
-                    $("#instalacion").append(cad);
-
-                  }
-                  //vamos a intentar llenar el select dinamicamente.
-                  var cnt = obj.operario.length;
-                  var cad = "";
-                  for (var i = 0; i < cnt; i++) {
-                    cad = "<option value = '" + obj.operario[i][0] + "'>"+ obj.operario[i][1] + "</option>";
-                    //$("#peticion").append(cad);
-                    $("#operario2").append(cad);
-
-                  }
-                  $("#peticion").html("");
-
-                }
-      })
-    });
+ ;
 
 
 
@@ -295,5 +237,75 @@ function fechaActual ()
       $("#password").val(pwd);
     }
 
+    datosServidor();
+
   }
+  
+
+   //--- LOGIN --------------------------------------------------------
+  // por ajax enviamos el formulario para que nos de la configuracion.
+  //------------------------------------------------------------------/-
+
+  $("#recupera").click (datosServidor)
+  /** ---- DatosServidor ---------------------------
+  * -- recupera los selects de explotacion y operarios
+  * ------------------------------------------------
+  */
+  function datosServidor () {
+
+      var exp =  $("#explotacion").val();
+      var pwd =  $("#password").val();
+      var direccion = $('#idurl').val() + 'conf.php';
+      
+      // comprobar que no estan vacios.
+      if (exp == "" || pwd =="" ){
+        app.dialog.alert ("rellene los campos explotacion y password");
+        return;
+      }
+
+      $.ajax ({
+                data: {
+                  "explotacion" : exp,
+                  "password" : pwd
+                },
+                url: direccion,
+                type: 'get',
+                beforeSend: function () { $("#peticion").html('Procesando ...'); app.dialog.preloader();},
+                success: function (response) {
+                    setTimeout(function () {
+                          app.dialog.close();
+                          }, 300);
+                   var obj = JSON.parse(response)
+                   if (obj.msg != 'ok'){
+                         $("#peticion").html('-- Fallo en los credenciales -- ');
+                         app.dialog.alert("Fallo en los credenciales");
+                         return;
+                    }
+
+                 // $("#peticion").html(response);
+
+                  //llenar el select dinamicamente.
+                  var cnt = obj.instalacion.length;
+                  var cad = "";
+                  for (var i = 0; i < cnt; i++) {
+                    cad = "<option value = '" + obj.instalacion[i][0] + "'>"+ obj.instalacion[i][1] + "</option>";
+                    //$("#peticion").append(cad);
+                    $("#instalacion").append(cad);
+
+                  }
+                  //vamos a intentar llenar el select dinamicamente.
+                  var cnt = obj.operario.length;
+                  var cad = "";
+                  for (var i = 0; i < cnt; i++) {
+                    cad = "<option value = '" + obj.operario[i][0] + "'>"+ obj.operario[i][1] + "</option>";
+                    //$("#peticion").append(cad);
+                    $("#operario2").append(cad);
+
+                  }
+                  $("#peticion").html("");
+
+                }
+      })
+    }
+
   
