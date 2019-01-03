@@ -160,14 +160,14 @@ $("#clear").click (function(){
                          return;
                     }
 
-                  $("#peticion").html(response);
+                 // $("#peticion").html(response);
 
                   //llenar el select dinamicamente.
                   var cnt = obj.instalacion.length;
                   var cad = "";
                   for (var i = 0; i < cnt; i++) {
                     cad = "<option value = '" + obj.instalacion[i][0] + "'>"+ obj.instalacion[i][1] + "</option>";
-                    $("#peticion").append(cad);
+                    //$("#peticion").append(cad);
                     $("#instalacion").append(cad);
 
                   }
@@ -176,11 +176,11 @@ $("#clear").click (function(){
                   var cad = "";
                   for (var i = 0; i < cnt; i++) {
                     cad = "<option value = '" + obj.operario[i][0] + "'>"+ obj.operario[i][1] + "</option>";
-                    $("#peticion").append(cad);
+                    //$("#peticion").append(cad);
                     $("#operario2").append(cad);
 
                   }
-
+                  $("#peticion").html("");
 
                 }
       })
@@ -285,13 +285,13 @@ function fechaActual ()
   function recuperaCredenciales (){
     if("explotacion" in localStorage){
       var exp = localStorage.getItem("explotacion");
-      alert (exp);
+      
       $("#explotacion").val(exp);
     }
 
     if("password" in localStorage){
       var pwd =localStorage.getItem("password");
-      alert (pwd);
+     
       $("#password").val(pwd);
     }
 
