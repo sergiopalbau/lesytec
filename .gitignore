@@ -1,2 +1,5 @@
 platforms/*
 copia--
+platforms/browser/browser.json
+platforms/browser/www/config.xml
+platforms/browser/www/js/my-app.js
