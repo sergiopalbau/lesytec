@@ -99,7 +99,7 @@ $("#clear").click (function(){
   function envioAjax (parametros)
   {
     var direccion = $('#idurl').val() + 'conf2.php';
-    alert (parametros);
+    //alert (parametros);
     alert(JSON.stringify(parametros));
          $.ajax ({
                 data: parametros,
