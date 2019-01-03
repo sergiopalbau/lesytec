@@ -98,11 +98,12 @@ $("#clear").click (function(){
   });
   function envioAjax (parametros)
   {
+    var direccion = $('#idurl').val() + 'conf2.php';
     alert (parametros);
     alert(JSON.stringify(parametros));
          $.ajax ({
                 data: parametros,
-                url: 'http://192.168.1.7/proyectoSignin/web/conf2.php',
+                url:  direccion,
                 type: 'get',
                 beforeSend: function () { $("#peticion").html('Procesando ...'); app.dialog.preloader();},
                 success: function (response) {
@@ -118,7 +119,7 @@ $("#clear").click (function(){
                   $("#peticion").html(response);
                 }
 
-    }
+    })
   }
   
   //--- LOGIN --------------------------------------------------------
@@ -128,17 +129,19 @@ $("#clear").click (function(){
   $("#recupera").click (function(){
       var exp =  $("#explotacion").val();
       var pwd =  $("#password").val();
+      var direccion = $('#idurl').val() + 'conf.php';
       // comprobar que no estan vacios.
       if (exp == "" || pwd =="" ){
         alert ("rellene los campos explotacion y password");
         return;
       }
+
       $.ajax ({
                 data: {
                   "explotacion" : exp,
                   "password" : pwd
                 },
-                url: 'http://192.168.1.7/proyectoSignin/web/conf.php',
+                url: direccion,
                 type: 'get',
                 beforeSend: function () { $("#peticion").html('Procesando ...'); app.dialog.preloader();},
                 success: function (response) {
