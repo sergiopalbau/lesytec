@@ -11,12 +11,13 @@
     <content src="index.html" />
     <acceso origin ="*" />
     <icon src="www/img/logo.png" />
+    <splash src="www/img/splash_hdpi.png"/>
    
      <gap:platform name="android" />
     <preference name="orientation" value="portrait"/>
     <preference name="fullscreen" value="false"/>
     <preference name="android-installLocation" value="auto"/>
-    <preference name="SplashScreenDelay" value="2000"/>
+    <preference name="SplashScreenDelay" value="1000"/>
     
     <plugin name="cordova-plugin-whitelist" spec="1" />
     <plugin name="cordova-plugin-splashscreen" spec="~4.0.0" />
