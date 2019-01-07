@@ -60,9 +60,9 @@ $("#clear").click (function(){
   $("#captura").click (function(){
 
      // capturamos la firma en un hidden                               
-     $('#firma').val($("#signature").jSignature("getData", "base30"));
+     $('#firma').val($("#signature").jSignature("getData","base30"));
 
-    var capturaFirma = $("#signature").jSignature("getData", "base30");
+    var capturaFirma = $("#signature").jSignature("getData","base30");
  		
     // validaciones del formulario.---------
      if (capturaFirma[1]===""){
@@ -104,7 +104,7 @@ $("#clear").click (function(){
   {
     var direccion = $('#idurl').val() + 'conf2.php';
     //alert (parametros);
-    alert(JSON.stringify(parametros));
+   // alert(JSON.stringify(parametros));
          $.ajax ({
                 data: parametros,
                 url:  direccion,
@@ -120,13 +120,22 @@ $("#clear").click (function(){
                          return;
                     }
 
-                  $("#peticion").html(response);
+                  $("#peticion").html('');
+                  borrarForm();
                 }
 
     })
   }
-  
- ;
+  //------------- se borra ;
+  $('#limpiaForm').click(borrarForm);
+
+  function borrarForm (){
+    $('#formulario')[0].reset();
+     $("#signature").jSignature("clear");
+     $('body').scrollTop(100);
+
+  }
+
 
 
 
@@ -161,41 +170,41 @@ function fechaActual ()
 	
 }
 
-  /**----------------------------------------------------------------
-  * funcion para usar la bbdd de firebase (anulada para el proyecto)
-  */
-  function act_bbdd (data) {
-    // logeamos el usuario.
-    const auth = firebase.auth();
-    const promise = auth.signInWithEmailAndPassword('prueba@prueba.es', 'prueba');
-    promise.catch (e=> console.log(e.message));
-    firebase.auth().onAuthStateChanged(firebaseUser => {
-      if (firebaseUser){
-        console.log('logueado');
-        var db = firebase.firestore();
-        const settings = {/* your settings... */ 
+  // /**----------------------------------------------------------------
+  // * funcion para usar la bbdd de firebase (anulada para el proyecto)
+  // */
+  // function act_bbdd (data) {
+  //   // logeamos el usuario.
+  //   const auth = firebase.auth();
+  //   const promise = auth.signInWithEmailAndPassword('prueba@prueba.es', 'prueba');
+  //   promise.catch (e=> console.log(e.message));
+  //   firebase.auth().onAuthStateChanged(firebaseUser => {
+  //     if (firebaseUser){
+  //       console.log('logueado');
+  //       var db = firebase.firestore();
+  //       const settings = {/* your settings... */ 
 
-        timestampsInSnapshots: true};
-        db.settings(settings);
-        db.collection("registro").add(data)
-        .then(function(docRef) {
-          console.log("Document written with ID: ", docRef.id);
-          alert("Document written with ID: ", docRef.id);
-          $$('#formulario')[0].reset();
-          $("#signature").jSignature("clear");
-        })
-        .catch(function(error) {
-          console.error("Error adding document: ", error);
-          alert("Error adding document: ", error);
-        });
+  //       timestampsInSnapshots: true};
+  //       db.settings(settings);
+  //       db.collection("registro").add(data)
+  //       .then(function(docRef) {
+  //         console.log("Document written with ID: ", docRef.id);
+  //         alert("Document written with ID: ", docRef.id);
+  //         $$('#formulario')[0].reset();
+  //         $("#signature").jSignature("clear");
+  //       })
+  //       .catch(function(error) {
+  //         console.error("Error adding document: ", error);
+  //         alert("Error adding document: ", error);
+  //       });
 
 
-      }else{
-        console.log ('no logueado');
-      }
-    })
+  //     }else{
+  //       console.log ('no logueado');
+  //     }
+  //   })
 
-  }
+  // }
 
   // ----------------------------------------------------
   // RECUPERAR / GUARDAR EN LOCAL STORAGE LOS CRENDENCIALES
