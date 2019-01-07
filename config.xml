@@ -11,13 +11,12 @@
     <content src="index.html" />
     <acceso origin ="*" />
     <icon src="www/img/logo.png" />
-    <splash src="www/img/splash.png"/>
-
+   
      <gap:platform name="android" />
     <preference name="orientation" value="portrait"/>
     <preference name="fullscreen" value="false"/>
     <preference name="android-installLocation" value="auto"/>
-    <preference name="SplashScreenDela" value="10000"/>
+    <preference name="SplashScreenDelay" value="2000"/>
     
     <plugin name="cordova-plugin-whitelist" spec="1" />
     <plugin name="cordova-plugin-splashscreen" spec="~4.0.0" />
@@ -29,11 +28,20 @@
        
     <platform name="android">
         <allow-intent href="market:*" />
+        <splash src="www/img/splash_hdpi.png" density="port-hdpi"/>
+        <splash src="www/img/splash_ldpi.png" density="port-ldpi"/>
+        <splash src="www/img/splash_mdpi.png" density="port-mdpi"/>
+        <splash src="www/img/splash_xhdpi.png" density="port-xhdpi"/>
     </platform>
+
     <platform name="ios">
         <allow-intent href="itms:*" />
-        <allow-intent href="itms-apps:*" />
+        <allow-intent href="itms-apps:*" />        
     </platform>
+
+  
+
+  
 
 
 
